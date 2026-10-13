@@ -1,10 +1,8 @@
-![](../../workflows/gds/badge.svg) ![](../../workflows/docs/badge.svg) ![](../../workflows/wokwi_test/badge.svg) ![](../../workflows/fpga/badge.svg)
 
 # Decodificador Morse a 7 Segmentos (Tiny Tapeout)
 
 Proyecto desarrollado para el taller de TinyTapeout-CANELOS 2026. Este diseño implementa un decodificador de código Morse utilizando un único botón pulsador físico para ingresar puntos y guiones, mostrando el carácter alfanumérico resultante en un display de 7 segmentos.
 
-- [Read the documentation for project](docs/info.md)
 
 ## What is Tiny Tapeout?
 
