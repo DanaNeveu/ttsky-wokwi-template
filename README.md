@@ -1,6 +1,8 @@
 ![](../../workflows/gds/badge.svg) ![](../../workflows/docs/badge.svg) ![](../../workflows/wokwi_test/badge.svg) ![](../../workflows/fpga/badge.svg)
 
-# Tiny Tapeout Wokwi Project Template
+# Decodificador Morse a 7 Segmentos (Tiny Tapeout)
+
+Proyecto desarrollado para el taller de TinyTapeout-CANELOS 2026. Este diseño implementa un decodificador de código Morse utilizando un único botón pulsador físico para ingresar puntos y guiones, mostrando el carácter alfanumérico resultante en un display de 7 segmentos.
 
 - [Read the documentation for project](docs/info.md)
 
@@ -10,15 +12,13 @@ Tiny Tapeout is an educational project that aims to make it easier and cheaper t
 
 To learn more and get started, visit https://tinytapeout.com.
 
-## Wokwi Projects
+## How it works
 
-Edit the [info.yaml](info.yaml) and change the `wokwi_id` to the ID of your Wokwi project. You can find the ID in the URL of your project, it's the big number after `wokwi.com/projects/`.
-
-The GitHub action will automatically fetch the digital netlist from Wokwi and build the ASIC files.
-
-## Enable GitHub actions to build the results page
-
-- [Enabling GitHub Pages](https://tinytapeout.com/faq/#my-github-action-is-failing-on-the-pages-part)
+El sistema consta de cuatro módulos principales en Verilog:
+1. **`debounce`**: Filtra el ruido mecánico y rebotes del botón físico.
+2. **`morse_fsm`**: Máquina de estados que mide con precisión milimétrica la duración de cada pulsación (distinguiendo puntos `< 250ms` de guiones `>= 250ms`) y detecta pausas de silencio (`> 700ms`) para cerrar el carácter.
+3. **`morse_to_7seg`**: Traductor combinacional que convierte los símbolos ingresados en patrones para un display de 7 segmentos (soportando letras A-Z, dígitos 0-9 y mostrando `=` en caso de error).
+4. **`morse_top`**: Módulo principal que unifica todo y gestiona las señales de entrada (`btn`), reloj (`clk`), reset (`rst_n`) y salidas hacia el display (`hex`) y LEDs de estado.
 
 ## Resources
 
