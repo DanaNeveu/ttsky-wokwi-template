@@ -9,7 +9,7 @@ project:
   clock_hz:     50000000       # Clock frequency in Hz (or 0 if not applicable)
 
 # Top module properties
-  top_module:   "morse_top"
+  top_module:   "tt_um_morse_top"
   source_files:
     - "project.v"
 
